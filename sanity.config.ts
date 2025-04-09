@@ -9,6 +9,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import { presentationTool } from 'sanity/presentation'
 import { resolve } from '@/sanity/presentation/resolve'
+import { assist } from "@sanity/assist";
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
@@ -33,6 +34,7 @@ export default defineConfig({
         },
       },
     }),
+    assist()
   ],
   document: {
     newDocumentOptions: (prev) => prev.filter((item) => item.templateId !== "siteSettings"),

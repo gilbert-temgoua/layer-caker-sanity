@@ -15,6 +15,11 @@ type PageBuilderProps = {
   documentType: string;
 };
 
+type DefaultPageBuilderBlockProps = {
+  _type: string;
+  _key: string;
+}
+
 const { projectId, dataset, stega } = client.config();
 export const createDataAttributeConfig = {
   projectId,
@@ -92,8 +97,8 @@ export function PageBuilder({
               </DragHandle>
             );
           default:
-            // This is a fallback for when we don't have a block type
-            return <div key={block._key}>Block not found: {block._type}</div>;
+            const _block = block as DefaultPageBuilderBlockProps;
+            return <div key={_block._key}>Block not found: {_block._type}</div>;
         }
       })}
     </main>

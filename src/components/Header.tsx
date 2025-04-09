@@ -23,6 +23,7 @@ export function Header() {
             <Link
               className="hover:text-pink-500 transition-colors"
               href="/studio"
+              target='_blank'
             >
               Sanity Studio
             </Link>
